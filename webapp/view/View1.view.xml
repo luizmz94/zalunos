@@ -1,0 +1,205 @@
+<mvc:View
+	controllerName="com.redware.treinamentoluiz.zalunoluiz.controller.View1"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:core="sap.ui.core"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page
+					id="page"
+					title="{i18n>title}"
+				>
+					<content>
+						<smartFilterBar:SmartFilterBar
+							id="smartFilterBar"
+							entitySet="AlunosSet"
+							persistencyKey="SmartFilter_Explored"
+							basicSearchFieldName="Bukrs"
+							enableBasicSearch="true"
+						>
+							<smartFilterBar:controlConfiguration>
+								<smartFilterBar:ControlConfiguration
+									key="Aluno"
+									visibleInAdvancedArea="true"
+								>
+									<smartFilterBar:defaultFilterValues>
+									</smartFilterBar:defaultFilterValues>
+								</smartFilterBar:ControlConfiguration>
+							</smartFilterBar:controlConfiguration>
+							<smartFilterBar:controlConfiguration>
+								<smartFilterBar:ControlConfiguration
+									key="Nome"
+									visibleInAdvancedArea="true"
+								>
+									<smartFilterBar:defaultFilterValues>
+									</smartFilterBar:defaultFilterValues>
+								</smartFilterBar:ControlConfiguration>
+							</smartFilterBar:controlConfiguration>
+							<smartFilterBar:controlConfiguration>
+								<smartFilterBar:ControlConfiguration
+									key="Ativo"
+									visibleInAdvancedArea="true"
+								>
+									<smartFilterBar:customControl>
+										<Switch
+											type="AcceptReject"
+											state="true"
+										>
+											<layoutData>
+												<FlexItemData growFactor="1"/>
+											</layoutData>
+										</Switch>
+									</smartFilterBar:customControl>
+									<smartFilterBar:defaultFilterValues>
+									</smartFilterBar:defaultFilterValues>
+								</smartFilterBar:ControlConfiguration>
+							</smartFilterBar:controlConfiguration>
+							<smartFilterBar:controlConfiguration>
+								<smartFilterBar:ControlConfiguration
+									key="Genero"
+									visibleInAdvancedArea="true"
+								>
+									<smartFilterBar:customControl>
+										<MultiComboBox
+											id="multiComboBox"
+											customData:hasValue="true"
+										>
+											<core:Item
+												key="1"
+												text="{i18n>genMasc}"
+											/>
+											<core:Item
+												key="2"
+												text="{i18n>genFem}"
+											/>
+											<core:Item
+												key="3"
+												text="{i18n>genOut}"
+											/>
+										</MultiComboBox>
+									</smartFilterBar:customControl>
+								</smartFilterBar:ControlConfiguration>
+							</smartFilterBar:controlConfiguration>
+							<smartFilterBar:controlConfiguration>
+								<smartFilterBar:ControlConfiguration
+									key="Aniversario"
+									visibleInAdvancedArea="true"
+									conditionType="{
+										module: 'sap.ui.comp.config.condition.DateRangeType',
+										ignoreTime: false,
+										operations: {
+											filter: [{
+												path: 'category',
+												contains: 'MONTH',
+												exclude: true
+											}, {
+												path: 'category',
+												contains: 'QUARTER',
+												exclude: true
+											}, {
+												path: 'key',
+												equals: 'TO',
+												exclude: true
+											}]
+										}
+									}"
+								>
+									<smartFilterBar:defaultFilterValues>
+									</smartFilterBar:defaultFilterValues>
+								</smartFilterBar:ControlConfiguration>
+							</smartFilterBar:controlConfiguration>
+							<!-- layout data used to make the table growing but the filter bar fixed -->
+							<smartFilterBar:layoutData>
+								<FlexItemData shrinkFactor="0"/>
+							</smartFilterBar:layoutData>
+						</smartFilterBar:SmartFilterBar>
+						<smartTable:SmartTable
+							id="smartTable"
+							entitySet="AlunosSet"
+							smartFilterId="smartFilterBar"
+							tableType="ResponsiveTable"
+							useVariantManagement="false"
+							header="Line Items"
+							initiallyVisibleFields="Plant,Aluno,Nome,Idade,Genero,Aniversario,Ativo,Valor"
+							beforeRebindTable="onBeforeRebindTable"
+							demandPopin="true"
+						>
+							<smartTable:customToolbar>
+								<OverflowToolbar design="Transparent">
+									<ToolbarSpacer/>
+									<OverflowToolbarButton text="Test"/>
+									<OverflowToolbarButton
+										icon="sap-icon://create"
+										tooltip="Criar"
+										text="Criar"
+										press="onCreate"
+									/>
+								</OverflowToolbar>
+							</smartTable:customToolbar>
+							<Table mode="SingleSelectLeft">
+								<columns>
+									<Column>
+										<customData>
+											<core:CustomData
+												key="p13nData"
+												value='\{"columnKey": "Genero","leadingProperty": "Genero", "sortProperty": "Genero","filterProperty": "Genero", "columnIndex": 5}'
+											/>
+										</customData>
+										<Text text="{/#AlunosSet/Genero/@sap:label}"/>
+									</Column>
+								</columns>
+								<columns>
+									<Column>
+										<customData>
+											<core:CustomData
+												key="p13nData"
+												value='\{"columnKey": "Aniversario","leadingProperty": "Aniversario", "sortProperty": "Aniversario","filterProperty": "Aniversario", "columnIndex": 5}'
+											/>
+										</customData>
+										<Text text="{/#AlunosSet/Aniversario/@sap:label}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem
+										type="Navigation"
+										press="onNavigationPress"
+									>
+										<cells>
+											<Text text="{
+												path: 'Genero',
+												formatter: '.formatter.getGenero'
+											}"/>
+										</cells>
+										<cells>
+											<Text text="{
+												path: 'Aniversario',
+												type: 'sap.ui.model.type.Date',
+												formatOptions: {
+													style: 'short',
+													strictParsing: true,
+													UTC: true
+												}
+											}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<smartTable:layoutData>
+								<FlexItemData
+									growFactor="1"
+									baseSize="0%"
+								/>
+							</smartTable:layoutData>
+						</smartTable:SmartTable>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
