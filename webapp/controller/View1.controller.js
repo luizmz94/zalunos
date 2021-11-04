@@ -17,6 +17,11 @@ sap.ui.define(
         formatter: formatter,
         onInit: function () {
           this._smartFilterBar = this.getView().byId("smartFilterBar");
+          this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        },
+
+        onCreate(oEvent) {
+          this._oRouter.navTo("RouteView2");
         },
 
         onBeforeRebindTable: function (oEvent) {

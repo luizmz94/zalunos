@@ -1,0 +1,22 @@
+<c:FragmentDefinition
+	xmlns="sap.uxap"
+	xmlns:c="sap.ui.core"
+	xmlns:m="sap.m"
+>
+	<ObjectPageSection
+		titleUppercase="false"
+		id="goalsSection"
+		title="2014 Goals Plan"
+	>
+		<subSections>
+			<ObjectPageSubSection
+				id="goalsSectionSS1"
+				titleUppercase="false"
+			>
+				<blocks>
+					<m:Input/>
+				</blocks>
+			</ObjectPageSubSection>
+		</subSections>
+	</ObjectPageSection>
+</c:FragmentDefinition>

@@ -1,0 +1,29 @@
+<c:FragmentDefinition
+    xmlns="sap.uxap"
+	xmlns:c="sap.ui.core"
+    xmlns:m="sap.m"
+>
+	<m:FlexBox
+		wrap="Wrap"
+		fitContainer="true"
+	>
+		<!-- <m:Avatar
+			class="sapUiMediumMarginEnd sapUiSmallMarginBottom"
+			displayShape="Square"
+			initials="HF"
+			displaySize="L"
+		/> -->
+		<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+			<m:Title text="{/#AlunosSet/Plant/@sap:label}"/>
+			<m:Label text="1040"/>
+		</m:VBox>
+		<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+			<m:Title text="{/#AlunosSet/CreatedAt/@sap:label}"/>
+			<m:Label text="{/#AlunosSet/CreatedAt/@sap:label}"/>
+		</m:VBox>
+		<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+			<m:Title text="{/#AlunosSet/CreatedBy/@sap:label}"/>
+			<m:Label text="{/#AlunosSet/CreatedBy/@sap:label}"/>
+		</m:VBox>
+	</m:FlexBox>
+</c:FragmentDefinition>

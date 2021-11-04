@@ -20,7 +20,7 @@
           "localUri": "localService/metadata.xml"
         }
       }
-		}
+    }
   },
   "sap.ui": {
     "technology": "UI5",
@@ -38,7 +38,6 @@
       "phone": true
     }
   },
-
   "sap.ui5": {
     "flexEnabled": false,
     "rootView": {
@@ -48,7 +47,7 @@
       "id": "View1"
     },
     "dependencies": {
-			"minUI5Version": "1.95.0",
+      "minUI5Version": "1.95.0",
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
@@ -67,10 +66,10 @@
           "bundleName": "com.redware.treinamentoluiz.zalunoluiz.i18n.i18n"
         }
       },
-			"": {
-				"dataSource": "mainService",
-				"preload": true
-			}
+      "": {
+        "dataSource": "mainService",
+        "preload": true
+      }
     },
     "resources": {
       "css": [
@@ -93,7 +92,16 @@
         {
           "name": "RouteView1",
           "pattern": "RouteView1",
-          "target": ["TargetView1"]
+          "target": [
+            "TargetView1"
+          ]
+        },
+        {
+          "name": "RouteView2",
+          "pattern": "RouteView2",
+          "target": [
+            "TargetView2"
+          ]
         }
       ],
       "targets": {
@@ -101,8 +109,13 @@
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "View1",
           "viewName": "View1"
+        },
+        "TargetView2": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "View2"
         }
       }
     }

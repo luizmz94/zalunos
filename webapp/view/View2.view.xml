@@ -1,0 +1,47 @@
+<mvc:View
+	controllerName="com.redware.treinamentoluiz.zalunoluiz.controller.View2"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.uxap"
+	xmlns:core="sap.ui.core"
+	xmlns:m="sap.m"
+>
+	<m:Shell id="shell">
+		<m:App id="app">
+			<m:pages>
+				<m:Page
+					id="page"
+					title="{i18n>students}"
+					navButtonPress="onNavBack"
+					showNavButton="true"
+				>
+					<m:content>
+						<ObjectPageLayout
+							id="ObjectPageLayout"
+							upperCaseAnchorBar="false"
+						>
+							<headerTitle>
+								<core:Fragment
+									fragmentName="com.redware.treinamentoluiz.zalunoluiz.view.fragments.HeaderTitle"
+									type="XML"
+								/>
+							</headerTitle>
+							<headerContent>
+								<core:Fragment
+									fragmentName="com.redware.treinamentoluiz.zalunoluiz.view.fragments.HeaderContent"
+									type="XML"
+								/>
+							</headerContent>
+							<sections>
+								<core:Fragment
+									fragmentName="com.redware.treinamentoluiz.zalunoluiz.view.sections.Sections"
+									type="XML"
+								/>
+							</sections>
+						</ObjectPageLayout>
+					</m:content>
+				</m:Page>
+			</m:pages>
+		</m:App>
+	</m:Shell>
+</mvc:View>
