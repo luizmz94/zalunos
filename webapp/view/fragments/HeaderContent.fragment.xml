@@ -14,16 +14,16 @@
 			displaySize="L"
 		/> -->
 		<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
-			<m:Title text="{/#AlunosSet/Plant/@sap:label}"/>
-			<m:Label text="1040"/>
+			<m:Title text="{/#Alunos/Plant/@sap:label}"/>
+			<m:Label text="{Aluno>/Plant}"/>
 		</m:VBox>
 		<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
-			<m:Title text="{/#AlunosSet/CreatedAt/@sap:label}"/>
-			<m:Label text="{/#AlunosSet/CreatedAt/@sap:label}"/>
+			<m:Title text="{/#Alunos/CreatedAt/@sap:label}"/>
+			<m:Label text="{Aluno>/CreatedAt}"/>
 		</m:VBox>
 		<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
-			<m:Title text="{/#AlunosSet/CreatedBy/@sap:label}"/>
-			<m:Label text="{/#AlunosSet/CreatedBy/@sap:label}"/>
+			<m:Title text="{/#Alunos/CreatedBy/@sap:label}"/>
+			<m:Label text="{Aluno>/CreatedBy}"/>
 		</m:VBox>
 	</m:FlexBox>
 </c:FragmentDefinition>

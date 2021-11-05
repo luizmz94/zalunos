@@ -28,7 +28,6 @@
 				</m:VBox>
 			</m:HBox>
 		</snappedHeading>
-
 		<expandedContent>
 			<m:Label text="Informações do Aluno - Aberto"/>
 		</expandedContent>
@@ -39,6 +38,7 @@
 			<m:Button
 				text="{i18n>save}"
 				type="Emphasized"
+				press="onSave"
 			/>
 			<!-- <m:Button text="Delete"/>
 										<m:Button text="Copy"/> -->

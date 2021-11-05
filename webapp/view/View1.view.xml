@@ -153,7 +153,7 @@
 												value='\{"columnKey": "Genero","leadingProperty": "Genero", "sortProperty": "Genero","filterProperty": "Genero", "columnIndex": 5}'
 											/>
 										</customData>
-										<Text text="{/#AlunosSet/Genero/@sap:label}"/>
+										<Text text="{/#Alunos/Genero/@sap:label}"/>
 									</Column>
 								</columns>
 								<columns>
@@ -164,7 +164,7 @@
 												value='\{"columnKey": "Aniversario","leadingProperty": "Aniversario", "sortProperty": "Aniversario","filterProperty": "Aniversario", "columnIndex": 5}'
 											/>
 										</customData>
-										<Text text="{/#AlunosSet/Aniversario/@sap:label}"/>
+										<Text text="{/#Alunos/Aniversario/@sap:label}"/>
 									</Column>
 								</columns>
 								<items>

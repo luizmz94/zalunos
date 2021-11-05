@@ -22,6 +22,29 @@ sap.ui.define(
         onNavBack(oEvent) {
           this._oRouter.navTo("RouteView1");
         },
+
+        onSave(oEvent) {
+          var modelAluno = this.getView().getModel("Aluno").getData();
+          var oModel = this.getView().getModel();
+
+          var oAluno = {
+            Plant: modelAluno.Plant,
+            Aluno: modelAluno.Aluno,
+            Nome: modelAluno.Nome,
+            Idade: modelAluno.Idade,
+            Aniversario: modelAluno.Aniversario,
+            Valor: modelAluno.Valor.toString(),
+            Ativo: modelAluno.Ativo,
+            Genero: modelAluno.Genero,
+            CreatedAt: modelAluno.CreatedAt,
+            CreatedBy: modelAluno.CreatedBy,
+          };
+
+          oModel.create("/AlunosSet", oAluno), {
+            sucess: function (oData, oResponse) {},
+            error: function (oError) {},
+          }; 
+        },
       }
     );
   }

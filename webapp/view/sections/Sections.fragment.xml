@@ -1,22 +1,118 @@
 <c:FragmentDefinition
-	xmlns="sap.uxap"
 	xmlns:c="sap.ui.core"
-	xmlns:m="sap.m"
+	xmlns:u="sap.uxap"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
 >
-	<ObjectPageSection
+	<u:ObjectPageSection
 		titleUppercase="false"
 		id="goalsSection"
-		title="2014 Goals Plan"
+		title="Cadastro de Aluno"
 	>
-		<subSections>
-			<ObjectPageSubSection
+		<u:subSections>
+			<u:ObjectPageSubSection
 				id="goalsSectionSS1"
 				titleUppercase="false"
 			>
-				<blocks>
-					<m:Input/>
-				</blocks>
-			</ObjectPageSubSection>
-		</subSections>
-	</ObjectPageSection>
+				<u:blocks>
+					<f:SimpleForm
+						id="SimpleFormChange354"
+						editable="true"
+						layout="ResponsiveGridLayout"
+						labelSpanXL="3"
+						labelSpanL="3"
+						labelSpanM="3"
+						labelSpanS="12"
+						adjustLabelSpan="false"
+						emptySpanXL="4"
+						emptySpanL="4"
+						emptySpanM="4"
+						emptySpanS="0"
+						columnsXL="1"
+						columnsL="1"
+						columnsM="1"
+						singleContainerFullSize="false"
+					>
+						<f:content>
+							<Label
+								text="{/#Alunos/Nome/@sap:label}"
+								labelFor="Nome"
+							/>
+							<Input
+								id="Nome"
+								value="{Aluno>/Nome}"
+							/>
+							<Label
+								text="{/#Alunos/Plant/@sap:label}"
+								labelFor="Plant"
+							/>
+							<Input value="{Aluno>/Plant}"/>
+							<Label
+								text="{/#Alunos/Idade/@sap:label}"
+								labelFor="Idade"
+							/>
+							<Input value="{path: 'Aluno>/Idade', type:'sap.ui.model.type.Integer'}"/>
+
+							<Label
+								text="{/#Alunos/Aniversario/@sap:label}"
+								labelFor="Aniversario"
+							/>
+							<DatePicker
+								id="DP1"
+								placeholder="{i18n>selectDate}"
+								class="sapUiSmallMarginBottom"
+								value="{Aluno>/Aniversario}"
+								valueFormat="yyyy-MM-ddThh:mm:ss"
+							/>
+							<Label
+								text="{/#Alunos/Valor/@sap:label}"
+								labelFor="Valor"
+							/>
+							<Input value="{
+								path: 'Aluno>/Valor',
+								type: 'sap.ui.model.type.Float',
+								formatOptions: {
+									minFractionDigits: 2,
+									maxFractionDigits: 2
+								}
+							}"/>
+							<Label
+								text="{/#Alunos/Ativo/@sap:label}"
+								labelFor="Ativo"
+							/>
+							<CheckBox
+								text="{/#Alunos/Ativo/@sap:label}"
+								selected="{Aluno>/Ativo}"
+							/>
+							<Label
+								text="{/#Alunos/Genero/@sap:label}"
+								labelFor="Genero"
+							/>
+							<Select
+								id="Genero"
+								selectedKey="{Aluno>/Genero}"
+								forceSelection="false"
+							>
+								<items>
+									<c:Item
+										key="M"
+										text="{i18n>genMasc}"
+									/>
+									<c:Item
+										key="F"
+										text="{i18n>genFem}"
+									/>
+									<c:Item
+										key="O"
+										text="{i18n>genOut}"
+									/>
+								</items>
+							</Select>
+						</f:content>
+					</f:SimpleForm>
+				</u:blocks>
+			</u:ObjectPageSubSection>
+		</u:subSections>
+	</u:ObjectPageSection>
 </c:FragmentDefinition>
