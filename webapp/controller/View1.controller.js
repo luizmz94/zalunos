@@ -42,6 +42,27 @@ sap.ui.define(
           );
           mBindingParams.filters.push(newFilter);
         },
+
+        onNavigationPress: function (oEvent) {
+          var oLine = oEvent.getSource();
+          var oModel = this.getView().getModel();
+          var lAluno = oLine.getBindingContext().getProperty("Aluno");
+          var lPlant = oLine.getBindingContext().getProperty("Plant");
+
+          var that = this;
+          var sRead = oModel.createKey("/AlunosSet", {
+            Plant: lPlant,
+            Aluno: lAluno,
+          });
+
+          oModel.read(sRead, {
+            success: function (oData, oResponse) {
+              that.getView().getModel("Aluno").setData(oData);
+              that._oRouter.navTo("RouteView2");
+            },
+            error: function (oError) {},
+          });
+        },
       }
     );
   }

@@ -6,7 +6,7 @@
 	<ObjectPageDynamicHeaderTitle>
 		<expandedHeading>
 			<m:Title
-				text="Nome do Aluno - Aberto"
+				text="{Aluno>/Nome}"
 				wrapping="true"
 			/>
 		</expandedHeading>
@@ -21,7 +21,7 @@
 				</m:VBox> -->
 				<m:VBox>
 					<m:Title
-						text="Nome do Aluno - Fechado"
+						text="{Aluno>/Nome}"
 						wrapping="true"
 					/>
 					<m:Label text="Informações do Aluno - Fechado"/>

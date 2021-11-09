@@ -40,13 +40,26 @@ sap.ui.define(
             CreatedBy: modelAluno.CreatedBy,
           };
 
+          var that = this;
           oModel.create("/AlunosSet", oAluno, {
             success: function (oData, oResponse) {
-              console.log(oResponse);
-              sap.m.MessageBox.success(" Created Successfully");
+              var oSapMessage = JSON.parse(oResponse.headers["sap-message"]);
+              if (oSapMessage.severity === "success") {
+                that.getView().getModel("Aluno").setData({});
+                sap.m.MessageBox.success(
+                  oSapMessage.message + " - " + oData.Aluno,
+                  {
+                    onClose: function (sAction) {
+                      that.onNavBack(oEvent);
+                    },
+                  }
+                );
+              } else {
+                sap.m.MessageBox.error(oSapMessage.message);
+              }
             },
             error: function (oError) {
-              sap.m.MessageBox.error(" Creation failed");
+              sap.m.MessageBox.error("Creation failed");
             },
           });
         },
