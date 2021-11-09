@@ -96,15 +96,15 @@
 							>
 								<items>
 									<c:Item
-										key="M"
+										key="1"
 										text="{i18n>genMasc}"
 									/>
 									<c:Item
-										key="F"
+										key="2"
 										text="{i18n>genFem}"
 									/>
 									<c:Item
-										key="O"
+										key="3"
 										text="{i18n>genOut}"
 									/>
 								</items>

@@ -40,10 +40,15 @@ sap.ui.define(
             CreatedBy: modelAluno.CreatedBy,
           };
 
-          oModel.create("/AlunosSet", oAluno), {
-            sucess: function (oData, oResponse) {},
-            error: function (oError) {},
-          }; 
+          oModel.create("/AlunosSet", oAluno, {
+            success: function (oData, oResponse) {
+              console.log(oResponse);
+              sap.m.MessageBox.success(" Created Successfully");
+            },
+            error: function (oError) {
+              sap.m.MessageBox.error(" Creation failed");
+            },
+          });
         },
       }
     );
