@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: '2.4'
+metadata:
+  name: 'zaluno_luiz'
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: HTTP://vm31.4hub.cloud:53100
+        app:
+          name: ZALUNO_LUIZ
+          description: Deploy APP ZAlunos
+          package: ZREDWARE_EDUCATION
+          transport: S4HK901320

@@ -40,6 +40,11 @@
 				type="Emphasized"
 				press="onSave"
 			/>
+			<m:Button
+				text="{i18n>delete}"
+				type="Emphasized"
+				press="onDelete"
+			/>
 			<!-- <m:Button text="Delete"/>
 										<m:Button text="Copy"/> -->
 			<!-- <m:OverflowToolbarButton

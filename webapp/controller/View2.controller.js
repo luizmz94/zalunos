@@ -23,6 +23,35 @@ sap.ui.define(
           this._oRouter.navTo("RouteView1");
         },
 
+        onDelete(oEvent) {
+          var oLine = oEvent.getSource();
+          var oModel = this.getView().getModel();
+          var modelAluno = this.getView().getModel("Aluno").getData();
+          var lAluno = modelAluno.Aluno;
+          var lPlant = modelAluno.Plant;
+
+          var that = this;
+
+          var sRead = oModel.createKey("/AlunosSet", {
+            Plant: lPlant,
+            Aluno: lAluno,
+          });
+
+          oModel.remove(sRead, {
+            success: function (oData, oResponse) {
+              var oSapMessage = JSON.parse(oResponse.headers["sap-message"]);
+              that.getView().getModel("Aluno").setData({});
+              sap.m.MessageBox.success(oSapMessage.message + lAluno, {
+                onClose: function (sAction) {
+                  that.onNavBack(oEvent);
+                },
+              });
+            },
+
+            error: function (oError) {},
+          });
+        },
+
         onSave(oEvent) {
           var modelAluno = this.getView().getModel("Aluno").getData();
           var oModel = this.getView().getModel();
